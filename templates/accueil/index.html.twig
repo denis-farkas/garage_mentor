@@ -47,6 +47,19 @@
           <a href="#" class="btn btn-secondary my-2">Secondary action</a>
         </p>
       </div>
+      <div class="col-12">
+      {{ dump() }}
+      </div>
+      <div {{react_component('Hello', {'fullName' : 'denis'})}}></div>
+      <div class="col-4">
+      <ul>
+     {% for service in services %}
+     <li>{{service.titre}}</li>
+     <li>{{service.description}}</li>
+    
+     {% endfor %}
+      </ul>
+      </div>
     </div>
   </section>
   </main>

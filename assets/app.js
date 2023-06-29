@@ -1,3 +1,5 @@
+import { registerReactControllerComponents } from '@symfony/ux-react';
+import './bootstrap.js';
 /*
  * Welcome to your app's main JavaScript file!
  *
@@ -9,3 +11,5 @@
 import "./styles/app.scss";
 
 import { Tooltip, Toast, Popover } from "bootstrap";
+
+registerReactControllerComponents(require.context('./react/controllers', true, /\.(j|t)sx?$/));
