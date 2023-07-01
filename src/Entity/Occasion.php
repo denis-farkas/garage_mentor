@@ -20,9 +20,6 @@ class Occasion
     #[ORM\Column(length: 255)]
     private ?string $modele = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $mise_circulation = null;
-
     #[ORM\Column]
     private ?float $prix = null;
 
@@ -41,6 +38,9 @@ class Occasion
     #[ORM\ManyToOne(inversedBy: 'occasions')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $author = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $miseCirculation = null;
 
     public function getId(): ?int
     {
@@ -73,12 +73,12 @@ class Occasion
 
     public function getMiseCirculation(): ?\DateTimeInterface
     {
-        return $this->mise_circulation;
+        return $this->miseCirculation;
     }
 
-    public function setMiseCirculation(\DateTimeInterface $mise_circulation): static
+    public function setMiseCirculation(\DateTimeInterface $miseCirculation): static
     {
-        $this->mise_circulation = $mise_circulation;
+        $this->miseCirculation = $miseCirculation;
 
         return $this;
     }

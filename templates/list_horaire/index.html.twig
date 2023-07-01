@@ -1,0 +1,24 @@
+
+<style>
+    .example-wrapper { margin: 0.5rem 4rem; width: 800px; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+<ul class="list-unstyled smaller">
+  {% for horaire in horaires %}
+    <li>
+      <span class="fw-bold">{{ horaire.jour }} :</span> {% if horaire.fermetureMatin %}
+        Fermé
+      {% else %}
+        {{ horaire.debutMatin }} - {{ horaire.finMatin }}
+      {% endif %}- {% if horaire.fermetureApresmidi %}
+        Fermé
+      {% else %}
+        {{ horaire.debutApresmidi }} - {{ horaire.finApresmidi }}
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+</div>
+

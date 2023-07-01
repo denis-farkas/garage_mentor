@@ -1,1 +1,16 @@
-$primary: #ffbe0b;
+$danger: #67242c;
+$white: #fff;
+$link-color: white;
+$link-hover-color: grey;
+
+.smaller {
+  font-size: 12px;
+}
+
+.bigger {
+  font-size: 48px;
+}
+
+.white {
+  color: $white;
+}

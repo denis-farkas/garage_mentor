@@ -16,8 +16,8 @@ class HoraireFixtures extends Fixture
         $lundi->setFinMatin('12h30');
         $lundi->setDebutApresmidi('14h00');
         $lundi->setFinApresmidi('19h00');
-        $lundi->setFermeture_matin(false);
-        $lundi->setFermeture_apresm(false);
+        $lundi->setFermetureMatin(false);
+        $lundi->setFermetureApresmidi(false);
         $manager->persist($lundi);
 
         $mardi = new Horaire();
@@ -26,8 +26,8 @@ class HoraireFixtures extends Fixture
         $mardi->setFinMatin('12h30');
         $mardi->setDebutApresmidi('14h00');
         $mardi->setFinApresmidi('19h00');
-        $mardi->setFermeture_matin(false);
-        $mardi->setFermeture_apresm(false);
+        $mardi->setFermetureMatin(false);
+        $mardi->setFermetureApresmidi(false);
         $manager->persist($mardi);
 
         $mercredi = new Horaire();
@@ -36,8 +36,8 @@ class HoraireFixtures extends Fixture
         $mercredi->setFinMatin('12h30');
         $mercredi->setDebutApresmidi('14h00');
         $mercredi->setFinApresmidi('19h00');
-        $mercredi->setFermeture_matin(false);
-        $mercredi->setFermeture_apresm(false);
+        $mercredi->setFermetureMatin(false);
+        $mercredi->setFermetureApresmidi(false);
         $manager->persist($mercredi);
 
         $jeudi = new Horaire();
@@ -46,8 +46,8 @@ class HoraireFixtures extends Fixture
         $jeudi->setFinMatin('12h30');
         $jeudi->setDebutApresmidi('14h00');
         $jeudi->setFinApresmidi('19h00');
-        $jeudi->setFermeture_matin(false);
-        $jeudi->setFermeture_apresm(false);
+        $jeudi->setFermetureMatin(false);
+        $jeudi->setFermetureApresmidi(false);
         $manager->persist($jeudi);
 
 
@@ -57,8 +57,8 @@ class HoraireFixtures extends Fixture
         $vendredi->setFinMatin('12h30');
         $vendredi->setDebutApresmidi('14h00');
         $vendredi->setFinApresmidi('19h00');
-        $vendredi->setFermeture_matin(false);
-        $vendredi->setFermeture_apresm(false);
+        $vendredi->setFermetureMatin(false);
+        $vendredi->setFermetureApresmidi(false);
         $manager->persist($vendredi);
 
         $samedi = new Horaire();
@@ -67,8 +67,8 @@ class HoraireFixtures extends Fixture
         $samedi->setFinMatin('13h00');
         $samedi->setDebutApresmidi('');
         $samedi->setFinApresmidi('');
-        $samedi->setFermeture_apresm(true);
-        $samedi->setFermeture_matin(false);
+        $samedi->setFermetureApresmidi(true);
+        $samedi->setFermetureMatin(false);
         $manager->persist($samedi);
 
         $dimanche = new Horaire();
@@ -77,8 +77,8 @@ class HoraireFixtures extends Fixture
         $dimanche->setFinMatin('');
         $dimanche->setDebutApresmidi('');
         $dimanche->setFinApresmidi('');
-        $dimanche->setFermeture_matin(true);
-        $dimanche->setFermeture_apresm(true);
+        $dimanche->setFermetureMatin(true);
+        $dimanche->setFermetureApresmidi(true);
         $manager->persist($dimanche);
         $manager->flush();
     }
