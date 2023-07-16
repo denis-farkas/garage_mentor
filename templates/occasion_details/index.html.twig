@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos Occasions{% endblock %}
+
+{% block body %}
+  <main class="w-100 py-5 container bg-dark mt-5">
+  <h2 class="text-center white">{{occasion.modele}}</h2>
+  <div class="row py-lg-2 justify-content-around">
+      <div class="col-lg-4 col-md-3 col-sm-8">
+        <div class="card h-100">
+          <img src="{{ asset(occasion.image) }}" class="card-img-top img-fluid py-3 px-3" alt="{{ occasion.marque }}" />
+          <div class="card-body">
+            <h5 class="card-title">{{ occasion.modele }}</h5>
+            <p class="card-text">{{ occasion.motorisation }}</p>
+            <p>{{ occasion.prix }} Euros</p>
+          <a href="{{ path('app_contact', {'voiture': occasion.id}) }}" class="btn btn-dark text-or">Contact</a>
+          </div>
+        </div>
+      </div>
+  </div>
+  </main>
+
+{% endblock %}

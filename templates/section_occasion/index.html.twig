@@ -1,0 +1,18 @@
+<section class="w-100 py-5 container bg-dark mt-5">
+  <h2 class="text-center white">NOS VEHICULES D'OCCASION</h2>
+  <div class="row py-lg-2 justify-content-around">
+    {% for occasion in occasions %}
+      <div class="col-lg-4 col-md-3 col-sm-8">
+        <div class="card h-100">
+          <img src="{{ occasion.image }}" class="card-img-top img-fluid py-3 px-3" alt="{{ occasion.marque }}" />
+          <div class="card-body">
+            <h5 class="card-title">{{ occasion.modele }}</h5>
+            <p class="card-text">{{ occasion.motorisation }}</p>
+            <p>{{ occasion.prix }} Euros</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    <a href="{{ path('app_occasions') }}" class=" w-50 mx-auto btn btn-dark text-or">Consulter nos occasions</a>
+  </div>
+</section>

@@ -9,9 +9,7 @@
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
+        
     </head>
     <body>
     <header>
@@ -52,7 +50,7 @@
 
     
     <div class="col-lg-4 col-md-4 col-sm-12">
-      <p class="mb-0 white ms-5 ps-3 border-bottom">Horaires d'ouvertures</p>
+      <p class="mb-1 white ms-1 ps-1 border-bottom">Horaires d'ouvertures</p>
       {{ render(controller('App\\Controller\\ListHoraireController::index')) }}
     </div>
     <div class="col-lg-4 col-md-4 col-sm-12">
@@ -61,7 +59,7 @@
           <a href="#" class="nav-link px-2 white">Home</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link px-2 white">Contact</a>
+          <a href="{{ path('app_contact', {'voiture': 0}) }}" class="nav-link px-2 white">Contact</a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link px-2 white">@2023 Copyright</a>
@@ -71,6 +69,9 @@
   </div>
     
 </footer>
+ {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
 </body>
 
 </html>

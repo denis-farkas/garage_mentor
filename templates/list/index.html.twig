@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Garage Perrot: Nos occasions{% endblock %}
+
+{% block body %}
+  <main class="w-100 py-5 container bg-dark mt-5 minHeight">
+    <h2 class="text-center white">NOS VEHICULES D'OCCASION</h2>
+    <div  {{react_component('Occasions')}}></div>
+ </main>
+{% endblock %}

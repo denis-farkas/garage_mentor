@@ -29,8 +29,6 @@ class Commentaire
     #[ORM\Column]
     private ?bool $accept = null;
 
-    #[ORM\ManyToOne(inversedBy: 'commentaires')]
-    private ?User $moderateur = null;
 
     public function getId(): ?int
     {
@@ -93,18 +91,6 @@ class Commentaire
     public function setAccept(bool $accept): static
     {
         $this->accept = $accept;
-
-        return $this;
-    }
-
-    public function getModerateur(): ?User
-    {
-        return $this->moderateur;
-    }
-
-    public function setModerateur(?User $moderateur): static
-    {
-        $this->moderateur = $moderateur;
 
         return $this;
     }

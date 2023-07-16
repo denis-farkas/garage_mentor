@@ -1,0 +1,5 @@
+easy_admin:
+  entities:
+    - App\Entity\Occasion:
+        class: App\Entity\Occasion
+        form: App\Form\RegisterOccasionType

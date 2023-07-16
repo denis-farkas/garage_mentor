@@ -1,7 +1,7 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+
 $danger: #67242c;
 $white: #fff;
-$link-color: white;
-$link-hover-color: grey;
 
 .smaller {
   font-size: 12px;
@@ -13,4 +13,38 @@ $link-hover-color: grey;
 
 .white {
   color: $white;
+}
+
+.wrapper {
+  height: 80vh;
+  width: auto;
+  z-index: 0;
+  background-color: #212529;
+}
+
+.go-front {
+  z-index: 1;
+}
+
+.minHeight {
+  min-height: 80vh;
+}
+
+.rubik-loader {
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url(../images/rubik.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 30px;
+  width: 400px;
 }

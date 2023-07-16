@@ -3,14 +3,11 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-#[ORM\Table(name: '`user`')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -31,26 +28,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $nom = null;
+    private ?string $name = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $prenom = null;
-
-    #[ORM\OneToMany(mappedBy: 'author', targetEntity: Occasion::class)]
-    private Collection $occasions;
-
-    #[ORM\OneToMany(mappedBy: 'Lecteur', targetEntity: Contact::class)]
-    private Collection $contacts;
-
-    #[ORM\OneToMany(mappedBy: 'moderateur', targetEntity: Commentaire::class)]
-    private Collection $commentaires;
-
-    public function __construct()
-    {
-        $this->occasions = new ArrayCollection();
-        $this->contacts = new ArrayCollection();
-        $this->commentaires = new ArrayCollection();
-    }
+    private ?string $firstname = null;
 
     public function getId(): ?int
     {
@@ -122,116 +103,26 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    public function getNom(): ?string
+    public function getName(): ?string
     {
-        return $this->nom;
+        return $this->name;
     }
 
-    public function setNom(string $nom): static
+    public function setName(string $name): static
     {
-        $this->nom = $nom;
+        $this->name = $name;
 
         return $this;
     }
 
-    public function getPrenom(): ?string
+    public function getFirstname(): ?string
     {
-        return $this->prenom;
+        return $this->firstname;
     }
 
-    public function setPrenom(string $prenom): static
+    public function setFirstname(string $firstname): static
     {
-        $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Occasion>
-     */
-    public function getOccasions(): Collection
-    {
-        return $this->occasions;
-    }
-
-    public function addOccasion(Occasion $occasion): static
-    {
-        if (!$this->occasions->contains($occasion)) {
-            $this->occasions->add($occasion);
-            $occasion->setAuthor($this);
-        }
-
-        return $this;
-    }
-
-    public function removeOccasion(Occasion $occasion): static
-    {
-        if ($this->occasions->removeElement($occasion)) {
-            // set the owning side to null (unless already changed)
-            if ($occasion->getAuthor() === $this) {
-                $occasion->setAuthor(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Contact>
-     */
-    public function getContacts(): Collection
-    {
-        return $this->contacts;
-    }
-
-    public function addContact(Contact $contact): static
-    {
-        if (!$this->contacts->contains($contact)) {
-            $this->contacts->add($contact);
-            $contact->setLecteur($this);
-        }
-
-        return $this;
-    }
-
-    public function removeContact(Contact $contact): static
-    {
-        if ($this->contacts->removeElement($contact)) {
-            // set the owning side to null (unless already changed)
-            if ($contact->getLecteur() === $this) {
-                $contact->setLecteur(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Commentaire>
-     */
-    public function getCommentaires(): Collection
-    {
-        return $this->commentaires;
-    }
-
-    public function addCommentaire(Commentaire $commentaire): static
-    {
-        if (!$this->commentaires->contains($commentaire)) {
-            $this->commentaires->add($commentaire);
-            $commentaire->setModerateur($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCommentaire(Commentaire $commentaire): static
-    {
-        if ($this->commentaires->removeElement($commentaire)) {
-            // set the owning side to null (unless already changed)
-            if ($commentaire->getModerateur() === $this) {
-                $commentaire->setModerateur(null);
-            }
-        }
+        $this->firstname = $firstname;
 
         return $this;
     }

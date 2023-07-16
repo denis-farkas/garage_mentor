@@ -26,14 +26,14 @@ class Contact
     #[ORM\Column(type: Types::TEXT)]
     private ?string $message = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     private ?bool $vu = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $action = null;
 
-    #[ORM\ManyToOne(inversedBy: 'contacts')]
-    private ?User $Lecteur = null;
+    #[ORM\Column(nullable: true)]
+    private ?int $voitureId = null;
 
     public function getId(): ?int
     {
@@ -112,14 +112,14 @@ class Contact
         return $this;
     }
 
-    public function getLecteur(): ?User
+    public function getVoitureId(): ?int
     {
-        return $this->Lecteur;
+        return $this->voitureId;
     }
 
-    public function setLecteur(?User $Lecteur): static
+    public function setVoitureId(?int $voitureId): static
     {
-        $this->Lecteur = $Lecteur;
+        $this->voitureId = $voitureId;
 
         return $this;
     }

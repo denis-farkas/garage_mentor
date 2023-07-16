@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\OccasionRepository;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: OccasionRepository::class)]
@@ -35,12 +34,19 @@ class Occasion
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
-    #[ORM\ManyToOne(inversedBy: 'occasions')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?User $author = null;
+    #[ORM\Column(length: 255)]
+    private ?string $image2 = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $miseCirculation = null;
+    #[ORM\Column(length: 255)]
+    private ?string $image3 = null;
+
+    #[ORM\Column]
+    private ?bool $sold = null;
+
+    #[ORM\Column]
+    private ?int $year = null;
+
+
 
     public function getId(): ?int
     {
@@ -71,17 +77,6 @@ class Occasion
         return $this;
     }
 
-    public function getMiseCirculation(): ?\DateTimeInterface
-    {
-        return $this->miseCirculation;
-    }
-
-    public function setMiseCirculation(\DateTimeInterface $miseCirculation): static
-    {
-        $this->miseCirculation = $miseCirculation;
-
-        return $this;
-    }
 
     public function getPrix(): ?float
     {
@@ -143,14 +138,52 @@ class Occasion
         return $this;
     }
 
-    public function getAuthor(): ?User
+
+
+    public function getImage2(): ?string
     {
-        return $this->author;
+        return $this->image2;
     }
 
-    public function setAuthor(?User $author): static
+    public function setImage2(string $image2): static
     {
-        $this->author = $author;
+        $this->image2 = $image2;
+
+        return $this;
+    }
+
+    public function getImage3(): ?string
+    {
+        return $this->image3;
+    }
+
+    public function setImage3(string $image3): static
+    {
+        $this->image3 = $image3;
+
+        return $this;
+    }
+
+    public function isSold(): ?bool
+    {
+        return $this->sold;
+    }
+
+    public function setSold(bool $sold): static
+    {
+        $this->sold = $sold;
+
+        return $this;
+    }
+
+    public function getYear(): ?int
+    {
+        return $this->year;
+    }
+
+    public function setYear(int $year): static
+    {
+        $this->year = $year;
 
         return $this;
     }

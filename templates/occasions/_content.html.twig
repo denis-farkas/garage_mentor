@@ -1,0 +1,32 @@
+{% for occasion in occasions %}
+      <div class="col-lg-4 col-md-3 col-sm-8">
+        <div class="card h-100">
+          <img src="{{ occasion.image }}" class="card-img-top img-fluid py-3 px-3" alt="{{ occasion.marque }}" />
+          <div class="card-body">
+            <h5 class="card-title">{{ occasion.modele }}</h5>
+            <p class="card-text">{{ occasion.motorisation }}</p>
+            <p>{{ occasion.prix }} Euros</p>
+           <a href="{{ path('app_occasion_details',{"id":occasion.id}) }}" class="btn btn-dark text-or">Détails</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    <div class="jumbotron  my-5">
+  {{form_start(form)}}
+    <div class='row justify-content-between'>
+      <div class="col-lg-4 col-md-4 col-sm-12 ">
+        {{form_row(form.maxPrice)}}
+        <div class="w-75 mx-auto" id="prix"><p class="white text-center">0 Euros</p></div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12">
+        {{form_row(form.maxKilometre)}}
+        <div class="w-75 mx-auto" id="kilo"><p class="white text-center">0 Kilométres</p></div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12">
+        {{form_row(form.maxYear)}}
+        <div class="w-75 mx-auto" id="year"><p class="white text-center">0 Ans</p></div>
+      </div>
+    </div>
+  {{form_end(form)}}
+</div>
+   
